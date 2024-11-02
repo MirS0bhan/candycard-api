@@ -3,9 +3,9 @@ from typing import List, Annotated
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session as sSession
 
-from candycard.auth import get_current_user
-from candycard.db import get_session, Deck
-from candycard.models import DeckBase, DeckResponse, TokenData
+from auth import get_current_user
+from db import get_session, Deck
+from models import DeckBase, DeckResponse, TokenData
 
 router = APIRouter()
 

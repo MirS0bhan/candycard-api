@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from candycard.middleware import rate_limit_builder
+from middleware import rate_limit_builder
 
-from .deck import router as deck_router
-from .card import router as card_router
+from deck import router as deck_router
+from card import (router as card_router)
 
 router = APIRouter(
     dependencies=[

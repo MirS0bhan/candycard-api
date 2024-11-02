@@ -1,5 +1,6 @@
 from typing import List
 from datetime import datetime
+from os import environ
 
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, create_engine
 from sqlalchemy.orm import relationship, MappedColumn, Mapped, Session, declarative_base, mapped_column
@@ -48,7 +49,8 @@ class Card(Base):
     deck: Mapped[Deck] = relationship("Deck", back_populates="cards")
 
 
-engine = create_engine("postgresql://misano@localhost:5432/leitner")
+adrress = environ.get("DATABASE_URL")
+engine = create_engine(adrress)
 Base.metadata.create_all(engine)
 
 def get_session():
